@@ -1,4 +1,4 @@
-const { gmd } = require("../gift");
+const { gmd } = require("../guru");
 const axios = require("axios");
 const { sendButtons } = require("gifted-btns");
 const { getContextInfo } = require("../guru/contextInfo");
