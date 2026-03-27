@@ -5,13 +5,12 @@
   "main": "./index.js",
   "type": "commonjs",
   "engines": {
-    "node": "18.x",
-    "npm": "9.x"
+    "node": "18.20.8",
+    "npm": "9.9.4"
   },
   "scripts": {
     "start": "node --max-old-space-size=256 index.js",
-    "dev": "node --max-old-space-size=256 index.js",
-    "stop": "pkill -f index.js || true"
+    "dev": "node --max-old-space-size=256 index.js"
   },
   "keywords": [
     "ultra-guru",
