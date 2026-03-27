@@ -6,19 +6,13 @@ const { gmd, commands, monospace, formatBytes } = require("../guru"),
   moment = require("moment-timezone"),
   more = String.fromCharCode(8206),
   readmore = more.repeat(4001),
-  ram = `${formatBytes(freeMemoryBytes)}/${formatBytes(totalMemoryBytes)}`;
+  ram = `\( {formatBytes(freeMemoryBytes)}/ \){formatBytes(totalMemoryBytes)}`;
 const { sendButtons } = require("gifted-btns");
 
-// Sacred Lotus Menu Design
-const sacredLotus = `
-                    ／l、     
-                   （ﾟ､ ｡ ７     
-                    l、 ~ヽ     
-                    じしf_,)ノ     
-        ༺༻༺༻༺༻༺༻༺༻༺༻༺༻༺༻
-        ☸     ULTRA GURU     ☸
-        ☸    READY TO USE    ☸
-        ༺༻༺༻༺༻༺༻༺༻༺༻༺༻༺༻
+// Enhanced Arrow & Sparkle Header
+const ultraArrow = `
+✨ ★彡 ULTRA GURU 彡★ ✨
+     ➳ Ready • Fast • Powerful ➳
 `;
 
 gmd(
@@ -174,40 +168,38 @@ gmd(
         (command) => command.pattern && !command.dontAddCommandList,
       ).length;
 
-      let menus = `${sacredLotus}
+      let menus = `${ultraArrow}
 
-╭─────────────────────────╮
-│                         │
-│  🪷 BOT     : ${monospace(botName)}
-│  🪷 OWNER   : ${monospace("GuruTech")}
-│  🪷 PREFIX  : ${monospace(botPrefix)}
-│  🪷 MODE    : ${monospace(botMode)}
-│  🪷 PLUGINS : ${monospace(totalCommands.toString())}
-│  🪷 VERSION : ${monospace(botVersion)}
-│  🪷 USER    : ${monospace(pushName)}
-│  🪷 UPTIME  : ${monospace(uptime)}
-│  🪷 DATE    : ${monospace(date)}
-│  🪷 TIME    : ${monospace(time)}
-│  🪷 MEMORY  : ${monospace(ram)}
-│                         │
-╰─────────────────────────╯
+✨━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━✨
+         🌟 BOT INFORMATION 🌟
+✨━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━✨
 
-༺༻༺༻༺༻༺༻༺༻༺༻༺༻༺༻
-☸  *MAIN MENU*  ☸
-༺༻༺༻༺༻༺༻༺༻༺༻༺༻༺༻
+   ✨ Bot     ➳ ${monospace(botName)}
+   ✨ Owner   ➳ ${monospace("GuruTech")}
+   ✨ Prefix  ➳ ${monospace(botPrefix)}
+   ✨ Mode    ➳ ${monospace(botMode)}
+   ✨ Plugins ➳ ${monospace(totalCommands)}
+   ✨ Version ➳ ${monospace(botVersion)}
+   ✨ User    ➳ ${monospace(pushName)}
+   ✨ Uptime  ➳ ${monospace(uptime)}
+   ✨ Date    ➳ ${monospace(date)}
+   ✨ Time    ➳ ${monospace(time)}
+   ✨ Memory  ➳ ${monospace(ram)}
 
-╭──❰ *AVAILABLE* ❱
-│🏮 *${botPrefix}menu* - Full Menu
-│🏮 *${botPrefix}list* - Command List
-│🏮 *${botPrefix}ping* - Response Speed
-│🏮 *${botPrefix}uptime* - Bot Status
-│🏮 *${botPrefix}repo* - Source Code
-│🏮 *${botPrefix}chjid* - Channel Info
-╰─────────────⦁
+✨━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━✨
+              MAIN MENU
+✨━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━✨
+
+   ➸ ${botPrefix}menu     → Full Menu
+   ➸ ${botPrefix}list     → Command List
+   ➸ ${botPrefix}ping     → Response Speed
+   ➸ ${botPrefix}uptime   → Bot Status
+   ➸ ${botPrefix}repo     → Source Code
+   ➸ ${botPrefix}chjid    → Channel Info
 
                     ／l、     
                    （ﾟ､ ｡ ７     
-                    l、 ~ヽ     
+                    l、 \~ヽ     
                     じしf_,)ノ`;
 
       const giftedMess = {
@@ -289,24 +281,28 @@ gmd(
         (command) => command.pattern && !command.dontAddCommandList,
       ).length;
 
-      let list = `${sacredLotus}
+      let list = `${ultraArrow}
 
-╭━━〔 *${monospace(botName)}* 〕━━╮
-│ ✦ *Mᴏᴅᴇ* : ${monospace(botMode)}
-│ ✦ *Pʀᴇғɪx* : [ ${monospace(botPrefix)} ]
-│ ✦ *Usᴇʀ* : ${monospace(pushName)}
-│ ✦ *Pʟᴜɢɪɴs* : ${monospace(totalCommands.toString())}
-│ ✦ *Vᴇʀsɪᴏɴ* : ${monospace(botVersion)}
-│ ✦ *Uᴘᴛɪᴍᴇ* : ${monospace(uptime)}
-│ ✦ *Tɪᴍᴇ Nᴏᴡ* : ${monospace(time)}
-│ ✦ *Dᴀᴛᴇ Tᴏᴅᴀʏ* : ${monospace(date)}
-│ ✦ *Tɪᴍᴇ Zᴏɴᴇ* : ${monospace(timeZone)}
-│ ✦ *Sᴇʀᴠᴇʀ Rᴀᴍ* : ${monospace(ram)}
-╰─────────────╯${readmore}\n`;
+✨━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━✨
+            COMMAND LIST
+✨━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━✨
+
+   ✨ Mode     ➳ ${monospace(botMode)}
+   ✨ Prefix   ➳ ${monospace(botPrefix)}
+   ✨ User     ➳ ${monospace(pushName)}
+   ✨ Plugins  ➳ ${monospace(totalCommands)}
+   ✨ Version  ➳ ${monospace(botVersion)}
+   ✨ Uptime   ➳ ${monospace(uptime)}
+   ✨ Time     ➳ ${monospace(time)}
+   ✨ Date     ➳ ${monospace(date)}
+   ✨ TimeZone ➳ ${monospace(timeZone)}
+   ✨ RAM      ➳ ${monospace(ram)}
+
+${readmore}\n`;
 
       commands.forEach((gmd, index) => {
         if (gmd.pattern && gmd.description) {
-          list += `*${index + 1} ${monospace(gmd.pattern)}*\n  ${gmd.description}\n`;
+          list += `   ➵ ${index + 1}. ${monospace(gmd.pattern)}\n      ✨ ${gmd.description}\n\n`;
         }
       });
 
@@ -407,41 +403,45 @@ gmd(
         categorized[cat].sort((a, b) => a.pattern.localeCompare(b.pattern));
       }
 
-      let header = `${sacredLotus}
+      let header = `${ultraArrow}
 
-╭━━〔 *${monospace(botName)}* 〕━━╮
-┃❍ *Mᴏᴅᴇ:*  ${monospace(botMode)}
-┃❍ *Pʀᴇғɪx:*  [ ${monospace(botPrefix)} ]
-┃❍ *Usᴇʀ:*  ${monospace(pushName)}
-┃❍ *Pʟᴜɢɪɴs:*  ${monospace(totalCommands.toString())}
-┃❍ *Vᴇʀsɪᴏɴ:*  ${monospace(botVersion)}
-┃❍ *Uᴘᴛɪᴍᴇ:*  ${monospace(uptime)}
-┃❍ *Tɪᴍᴇ Nᴏᴡ:*  ${monospace(time)}
-┃❍ *Dᴀᴛᴇ Tᴏᴅᴀʏ:*  ${monospace(date)}
-┃❍ *Tɪᴍᴇ Zᴏɴᴇ:*  ${monospace(timeZone)}
-┃❍ *Sᴇʀᴠᴇʀ Rᴀᴍ:*  ${monospace(ram)}
-╰═════════════════⊷\n${readmore}\n`;
+✨━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━✨
+           ULTRA GURU MENU
+✨━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━✨
+
+   ✨ Mode     ➳ ${monospace(botMode)}
+   ✨ Prefix   ➳ ${monospace(botPrefix)}
+   ✨ User     ➳ ${monospace(pushName)}
+   ✨ Plugins  ➳ ${monospace(totalCommands)}
+   ✨ Version  ➳ ${monospace(botVersion)}
+   ✨ Uptime   ➳ ${monospace(uptime)}
+   ✨ Time     ➳ ${monospace(time)}
+   ✨ Date     ➳ ${monospace(date)}
+   ✨ TimeZone ➳ ${monospace(timeZone)}
+   ✨ RAM      ➳ ${monospace(ram)}
+
+${readmore}\n`;
 
       const formatCategory = (category, gmds) => {
-        const title = `╭━━━━❮ *${monospace(category.toUpperCase())}* ❯━⊷ \n`;
-        const body = gmds
-          .map((gmd) => {
-            const prefix = gmd.isBody ? "" : botPrefix;
-            return `┃◇ ${monospace(prefix + gmd.pattern)}`;
-          })
-          .join("\n");
-        const footer = `╰━━━━━━━━━━━━━━━━━⊷\n`;
-        return `${title}${body}\n${footer}\n`;
+        let section = `✨━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━✨\n`;
+        section += `       ❋ ${monospace(category.toUpperCase())} ❋\n`;
+        section += `✨━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━✨\n`;
+        gmds.forEach((gmd) => {
+          const prefix = gmd.isBody ? "" : botPrefix;
+          section += `   ➳ ${monospace(prefix + gmd.pattern)}\n`;
+        });
+        section += `\n`;
+        return section;
       };
 
       let menu = header;
       for (const category of sortedCategories) {
-        menu += formatCategory(category, categorized[category]) + "\n";
+        menu += formatCategory(category, categorized[category]);
       }
 
       const giftedMess = {
         image: { url: botPic },
-        caption: `${menu.trim()}\n\n${sacredLotus}\n> *${botFooter}*`,
+        caption: `\( {menu.trim()}\n\n \){ultraArrow}\n> *${botFooter}*`,
         contextInfo: {
           mentionedJid: [sender],
           forwardingScore: 5,
@@ -462,8 +462,7 @@ gmd(
   },
 );
 
-// Rest of your commands (return, uptime, repo, save, chjid) remain the same...
-// Keep all your other commands unchanged from your original file
+// ==================== ORIGINAL COMMANDS (UNCHANGED) ====================
 
 gmd(
   {
@@ -613,7 +612,7 @@ gmd(
       updated_at,
       owner,
     } = repoData;
-    const messageText = `Hello *_${pushName}_,*\nThis is *${botName},* A Whatsapp Bot Built by *${ownerName},* Enhanced with Amazing Features to Make Your Whatsapp Communication and Interaction Experience Amazing\n\n*❲❒❳ ɴᴀᴍᴇ:* ${name}\n*❲❒❳ sᴛᴀʀs:* ${stargazers_count}\n*❲❒❳ ғᴏʀᴋs:* ${forks_count}\n*❲❒❳ ᴄʀᴇᴀᴛᴇᴅ ᴏɴ:* ${new Date(created_at).toLocaleDateString()}\n*❲❒❳ ʟᴀsᴛ ᴜᴘᴅᴀᴛᴇᴅ:* ${new Date(updated_at).toLocaleDateString()}`;
+    const messageText = `Hello *_\( {pushName}_,*\nThis is * \){botName},* A Whatsapp Bot Built by *${ownerName},* Enhanced with Amazing Features to Make Your Whatsapp Communication and Interaction Experience Amazing\n\n*❲❒❳ ɴᴀᴍᴇ:* ${name}\n*❲❒❳ sᴛᴀʀs:* ${stargazers_count}\n*❲❒❳ ғᴏʀᴋs:* ${forks_count}\n*❲❒❳ ᴄʀᴇᴀᴛᴇᴅ ᴏɴ:* ${new Date(created_at).toLocaleDateString()}\n*❲❒❳ ʟᴀsᴛ ᴜᴘᴅᴀᴛᴇᴅ:* ${new Date(updated_at).toLocaleDateString()}`;
 
     const dateNow = Date.now();
     await sendButtons(Gifted, from, {
@@ -859,7 +858,7 @@ gmd(
 
       let picUrl = null;
       try {
-        const apiUrl = `${GiftedTechApi}/api/stalk/wachannel?apikey=${GiftedApiKey}&url=${encodeURIComponent(channelUrl)}`;
+        const apiUrl = `\( {GiftedTechApi}/api/stalk/wachannel?apikey= \){GiftedApiKey}&url=${encodeURIComponent(channelUrl)}`;
         const apiRes = await axios.get(apiUrl, { timeout: 10000 });
         picUrl = apiRes.data?.result?.img || null;
       } catch (apiErr) {
@@ -873,7 +872,7 @@ gmd(
         if (trimmed.length > MAX_DESC) {
           const visible = trimmed.slice(0, MAX_DESC);
           const hidden = trimmed.slice(MAX_DESC);
-          descSection = `\n\n📄 *Description:*\n${visible}${readmore}${hidden}`;
+          descSection = `\n\n📄 *Description:*\n\( {visible} \){readmore}${hidden}`;
         } else {
           descSection = `\n\n📄 *Description:*\n${trimmed}`;
         }
