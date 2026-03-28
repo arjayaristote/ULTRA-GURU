@@ -997,3 +997,4 @@ function buildContext(ms, settings, helpers, data) {
     await loadBotSettings();
     startGuru();
 })();
+}
