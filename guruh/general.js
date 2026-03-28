@@ -6,7 +6,7 @@ const { gmd, commands, monospace, formatBytes } = require("../guru"),
   moment = require("moment-timezone"),
   more = String.fromCharCode(8206),
   readmore = more.repeat(4001),
-  ram = `\( {formatBytes(freeMemoryBytes)}/ \){formatBytes(totalMemoryBytes)}`;
+  ram = `${formatBytes(freeMemoryBytes())}/${formatBytes(totalMemoryBytes())}`;
 const { sendButtons } = require("gifted-btns");
 
 // Enhanced Arrow & Sparkle Header
@@ -199,7 +199,7 @@ gmd(
 
                     ／l、     
                    （ﾟ､ ｡ ７     
-                    l、 \~ヽ     
+                    l、 ~ヽ     
                     じしf_,)ノ`;
 
       const giftedMess = {
@@ -441,7 +441,7 @@ ${readmore}\n`;
 
       const giftedMess = {
         image: { url: botPic },
-        caption: `\( {menu.trim()}\n\n \){ultraArrow}\n> *${botFooter}*`,
+        caption: `${menu.trim()}\n\n${ultraArrow}\n> *${botFooter}*`,
         contextInfo: {
           mentionedJid: [sender],
           forwardingScore: 5,
@@ -462,7 +462,7 @@ ${readmore}\n`;
   },
 );
 
-// ==================== ORIGINAL COMMANDS (UNCHANGED) ====================
+// ==================== ORIGINAL COMMANDS ====================
 
 gmd(
   {
@@ -612,7 +612,7 @@ gmd(
       updated_at,
       owner,
     } = repoData;
-    const messageText = `Hello *_\( {pushName}_,*\nThis is * \){botName},* A Whatsapp Bot Built by *${ownerName},* Enhanced with Amazing Features to Make Your Whatsapp Communication and Interaction Experience Amazing\n\n*❲❒❳ ɴᴀᴍᴇ:* ${name}\n*❲❒❳ sᴛᴀʀs:* ${stargazers_count}\n*❲❒❳ ғᴏʀᴋs:* ${forks_count}\n*❲❒❳ ᴄʀᴇᴀᴛᴇᴅ ᴏɴ:* ${new Date(created_at).toLocaleDateString()}\n*❲❒❳ ʟᴀsᴛ ᴜᴘᴅᴀᴛᴇᴅ:* ${new Date(updated_at).toLocaleDateString()}`;
+    const messageText = `Hello *_${pushName}_,*\nThis is *${botName},* A Whatsapp Bot Built by *${ownerName},* Enhanced with Amazing Features to Make Your Whatsapp Communication and Interaction Experience Amazing\n\n*❲❒❳ ɴᴀᴍᴇ:* ${name}\n*❲❒❳ sᴛᴀʀs:* ${stargazers_count}\n*❲❒❳ ғᴏʀᴋs:* ${forks_count}\n*❲❒❳ ᴄʀᴇᴀᴛᴇᴅ ᴏɴ:* ${new Date(created_at).toLocaleDateString()}\n*❲❒❳ ʟᴀsᴛ ᴜᴘᴅᴀᴛᴇᴅ:* ${new Date(updated_at).toLocaleDateString()}`;
 
     const dateNow = Date.now();
     await sendButtons(Gifted, from, {
@@ -858,7 +858,7 @@ gmd(
 
       let picUrl = null;
       try {
-        const apiUrl = `\( {GiftedTechApi}/api/stalk/wachannel?apikey= \){GiftedApiKey}&url=${encodeURIComponent(channelUrl)}`;
+        const apiUrl = `${GiftedTechApi}/api/stalk/wachannel?apikey=${GiftedApiKey}&url=${encodeURIComponent(channelUrl)}`;
         const apiRes = await axios.get(apiUrl, { timeout: 10000 });
         picUrl = apiRes.data?.result?.img || null;
       } catch (apiErr) {
@@ -872,7 +872,7 @@ gmd(
         if (trimmed.length > MAX_DESC) {
           const visible = trimmed.slice(0, MAX_DESC);
           const hidden = trimmed.slice(MAX_DESC);
-          descSection = `\n\n📄 *Description:*\n\( {visible} \){readmore}${hidden}`;
+          descSection = `\n\n📄 *Description:*\n${visible}${readmore}${hidden}`;
         } else {
           descSection = `\n\n📄 *Description:*\n${trimmed}`;
         }
