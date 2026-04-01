@@ -1153,7 +1153,7 @@ gmd(
         forwardingScore: 1,
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-          newsletterJid: newsletterJid || "120363403054496228@newsletter",
+          newsletterJid: newsletterJid || "120363406466294627@newsletter",
           newsletterName: sourceName,
           serverMessageId: -1,
         },
