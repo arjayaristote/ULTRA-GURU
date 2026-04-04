@@ -52,18 +52,6 @@ gmd(
       ],
     });
 
-    /*await Gifted.sendMessage(from, {
-      text: 
-      contextInfo: {
-        forwardingScore: 5,
-        isForwarded: true,
-        forwardedNewsletterMessageInfo: {
-          newsletterJid: newsletterJid,
-          newsletterName: botName,
-          serverMessageId: 143
-        }
-      }
-    }, { quoted: mek });*/
     await react("✅");
   },
 );
@@ -277,24 +265,23 @@ gmd(
         (command) => command.pattern && !command.dontAddCommandList,
       ).length;
 
-      let list = `
-✧━ *ULTRA GURU MD* ━✧
-┏━━━━━━━━━━━━━━━━━━┓
+      let list = `✧━ *ULTRA GURU MD* ━✧
+┏━━━━━━━━━━━━━━━━━━━━━━┓
 ┃ 🌟 *Mode*     : ${monospace(botMode)}
 ┃ ⚡ *Prefix*   : ${monospace(botPrefix)}
 ┃ 👤 *User*     : ${monospace(pushName)}
-┃ 📊 *Plugins*  : ${monospace(totalCommands.toString())}
+┃ 📊 *Plugins*  : ${monospace(totalCommands)}
 ┃ 📌 *Version*  : ${monospace(botVersion)}
 ┃ ⏳ *Uptime*   : ${monospace(uptime)}
 ┃ 🕒 *Time*     : ${monospace(time)}
 ┃ 📅 *Date*     : ${monospace(date)}
 ┃ 🌍 *Zone*     : ${monospace(timeZone)}
 ┃ 💾 *Ram*      : ${monospace(ram)}
-┗━━━━━━━━━━━━━━━━━━┛${readmore}\n`;
+┗━━━━━━━━━━━━━━━━━━━━━━┛${readmore}\n\n`;
 
       commands.forEach((gmd, index) => {
         if (gmd.pattern && gmd.description) {
-          list += `*${index + 1} ${monospace(gmd.pattern)}*\n  ${gmd.description}\n`;
+          list += `*${index + 1}.* ${monospace(gmd.pattern)}\n   ${gmd.description}\n\n`;
         }
       });
 
@@ -395,41 +382,38 @@ gmd(
         categorized[cat].sort((a, b) => a.pattern.localeCompare(b.pattern));
       }
 
-      let header = `
-✧━ *ULTRA GURU MD* ━✧
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+      let header = `✧━ *ULTRA GURU MD* ━✧
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┓
 ┃ 🌟 *Mode*      : ${monospace(botMode)}
 ┃ ⚡ *Prefix*    : ${monospace(botPrefix)}
 ┃ 👤 *User*      : ${monospace(pushName)}
-┃ 📊 *Plugins*   : ${monospace(totalCommands.toString())}
+┃ 📊 *Plugins*   : ${monospace(totalCommands)}
 ┃ 📌 *Version*   : ${monospace(botVersion)}
 ┃ ⏳ *Uptime*    : ${monospace(uptime)}
 ┃ 🕒 *Time*      : ${monospace(time)}
 ┃ 📅 *Date*      : ${monospace(date)}
 ┃ 🌍 *Zone*      : ${monospace(timeZone)}
 ┃ 💾 *Ram*       : ${monospace(ram)}
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━┛${readmore}\n`;
+┗━━━━━━━━━━━━━━━━━━━━━━━━━┛${readmore}\n\n`;
 
       const formatCategory = (category, gmds) => {
-        const title = `✦━━ *${monospace(category.toUpperCase())}* ━━✦\n`;
-        const body = gmds
-          .map((gmd) => {
-            const prefix = gmd.isBody ? "" : botPrefix;
-            return `◉ ${monospace(prefix + gmd.pattern)}`;
-          })
-          .join("\n");
-        const footer = `━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
-        return `\( {title} \){body}\n${footer}\n`;
+        let catText = `✦━━━ *${monospace(category.toUpperCase())}* ━━━✦\n`;
+        gmds.forEach((gmd) => {
+          const prefix = gmd.isBody ? "" : botPrefix;
+          catText += `◉ ${monospace(prefix + gmd.pattern)}\n`;
+        });
+        catText += `━━━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
+        return catText;
       };
 
-      let menu = header;
+      let menuText = header;
       for (const category of sortedCategories) {
-        menu += formatCategory(category, categorized[category]) + "\n";
+        menuText += formatCategory(category, categorized[category]);
       }
 
       const giftedMess = {
         image: { url: botPic },
-        caption: `\( {menu.trim()}\n\n> * \){botFooter}*`,
+        caption: menuText.trim(),
         contextInfo: {
           mentionedJid: [sender],
           forwardingScore: 5,
@@ -450,6 +434,7 @@ gmd(
   },
 );
 
+// The rest of the commands (return, uptime, repo, save, chjid) remain unchanged
 gmd(
   {
     pattern: "return",
@@ -509,22 +494,6 @@ gmd(
           ],
         });
 
-        /* await Gifted.sendMessage(
-        from,
-        {
-          text: formattedMessage,
-          contextInfo: {
-            forwardingScore: 5,
-            isForwarded: true,
-            forwardedNewsletterMessageInfo: {
-              newsletterJid: newsletterJid,
-              newsletterName: botName,
-              serverMessageId: 143
-            },
-          },
-        },
-        { quoted: mek }
-      );*/
         await react("✅");
       }
     } catch (error) {
@@ -790,7 +759,6 @@ gmd(
     }
   },
 );
-
 
 gmd(
   {
